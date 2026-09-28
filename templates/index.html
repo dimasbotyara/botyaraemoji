@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha" data-accent="green">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>botyaraemoji</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😀</text></svg>">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <span class="logo-emoji">😀</span>
+                <h1 class="logo-text">botyaraemoji</h1>
+            </div>
+            <div class="header-right">
+                <button class="btn-icon" id="settingsToggle" aria-label="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search -->
+        <div class="search-wrap">
+            <div class="search-box">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="searchInput" autocomplete="off" data-i18n-placeholder="search_placeholder">
+                <button class="search-clear hidden" id="searchClear">&times;</button>
+            </div>
+        </div>
+
+        <!-- Category tabs -->
+        <nav class="category-tabs" id="categoryTabs">
+            <button class="tab-btn active" data-category="recent" title="">🕐</button>
+        </nav>
+
+        <!-- Emoji grid -->
+        <main class="main-content" id="mainContent">
+            <!-- Recent section -->
+            <section class="emoji-section" id="section-recent">
+                <h2 class="section-title" data-i18n="recent">Recent</h2>
+                <div class="emoji-grid" id="grid-recent">
+                    <div class="empty-state" data-i18n="no_recent">No recent emojis</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Toast notification -->
+        <div class="toast" id="toast">
+            <span class="toast-emoji" id="toastEmoji"></span>
+            <span class="toast-text" data-i18n="copied">Copied!</span>
+        </div>
+
+        <!-- Settings panel -->
+        <div class="settings-overlay hidden" id="settingsOverlay">
+            <div class="settings-panel" id="settingsPanel">
+                <div class="settings-header">
+                    <h2 data-i18n="settings">Settings</h2>
+                    <button class="btn-icon" id="settingsClose">&times;</button>
+                </div>
+
+                <div class="settings-body">
+                    <!-- Language -->
+                    <div class="setting-group">
+                        <label class="setting-label" data-i18n="language">Language</label>
+                        <div class="setting-options" id="langOptions">
+                            <button class="option-btn" data-lang="ru">Русский</button>
+                            <button class="option-btn" data-lang="en">English</button>
+                        </div>
+                    </div>
+
+                    <!-- Theme -->
+                    <div class="setting-group">
+                        <label class="setting-label" data-i18n="theme">Theme</label>
+                        <div class="theme-grid" id="themeGrid">
+                            <button class="theme-btn" data-theme="mocha">
+                                <span class="theme-preview mocha-preview"></span>
+                                <span>Catppuccin Mocha</span>
+                            </button>
+                            <button class="theme-btn" data-theme="macchiato">
+                                <span class="theme-preview macchiato-preview"></span>
+                                <span>Catppuccin Macchiato</span>
+                            </button>
+                            <button class="theme-btn" data-theme="frappe">
+                                <span class="theme-preview frappe-preview"></span>
+                                <span>Catppuccin Frappé</span>
+                            </button>
+                            <button class="theme-btn" data-theme="latte">
+                                <span class="theme-preview latte-preview"></span>
+                                <span>Catppuccin Latte</span>
+                            </button>
+                            <button class="theme-btn" data-theme="nord-dark">
+                                <span class="theme-preview nord-dark-preview"></span>
+                                <span>Nord Dark</span>
+                            </button>
+                            <button class="theme-btn" data-theme="nord-light">
+                                <span class="theme-preview nord-light-preview"></span>
+                                <span>Nord Light</span>
+                            </button>
+                            <button class="theme-btn" data-theme="dracula">
+                                <span class="theme-preview dracula-preview"></span>
+                                <span>Dracula</span>
+                            </button>
+                            <button class="theme-btn" data-theme="rosepine">
+                                <span class="theme-preview rosepine-preview"></span>
+                                <span>Rosé Pine</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Accent color -->
+                    <div class="setting-group">
+                        <label class="setting-label" data-i18n="accent_color">Accent Color</label>
+                        <div class="accent-grid" id="accentGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
